@@ -24,8 +24,8 @@ c Define all variables
 
 c Begin game play
 			write(*,2)
-		  read(*,*)
-990		write(*,3)
+		  	read(*,*)
+990			write(*,3)
 			numgoes = 0
 			read(*,*) colors, pegs
 			
@@ -54,7 +54,7 @@ c Begin game play
 			END IF
 			
 c	Generate random solution
-      DO k = 1, pegs
+      			DO k = 1, pegs
 			 rand1 = rand(seed)
 			 seed = rand1
 			 randint = MOD((rand1 * 10), (colors*1.0)) + 1.0
@@ -74,7 +74,7 @@ c	Generate random solution
 			END DO
 
 c	User makes a guess
-991		write(*,5)
+991			write(*,5)
 			read(*,14) guess
 			numgoes = numgoes + 1
 			rplace = 0
@@ -127,23 +127,23 @@ c Report back to user number of right place and right color, wrong place
 			IF(wplace.eq.1) THEN
 			 write(*,9)
 			ELSE
-  		 write(*,15,advance='no') wplace
-       write(*,10)
+  		 	 write(*,15,advance='no') wplace
+       			 write(*,10)
 			END IF
 
 c	Prompt for next guess
 			GO TO 991
 
 c User has solved the puzzle!
-992		write(*,11)
+992			write(*,11)
 			write(*,15,advance='no') numgoes
 			IF(numgoes.eq.1) THEN
 			 write(*,*) 'go.'
 			ELSE
 			 write(*,*) 'goes.'
 			END IF
-		  write(*,12)
-993		read(*,14) playagain
+		  	write(*,12)
+993			read(*,14) playagain
 
 c Make response lowercase and check
 			DO j = 1, 3
@@ -162,14 +162,14 @@ c Make response lowercase and check
 			END IF
 
 c	FORMAT STATEMENTS
-2     FORMAT ('Welcome to Mastermind. (Press enter to continue): ', $)
-3			FORMAT ('How many colors and pegs should I use? ', $)
-4			FORMAT ('Colors are (R)ed, (G)reen, (B)lue, (Y)ellow,', $)
-5			FORMAT ('Enter your guess: ', $)
-6			FORMAT ('Your guess contains', $)
-7			FORMAT (' 1 piece in the right place and', $)
-8			FORMAT (' pieces in the right place and', $)
-9			FORMAT (' 1 piece of the correct color in the wrong place')
+2     	        FORMAT ('Welcome to Mastermind. (Press enter to continue): ', $)
+3		FORMAT ('How many colors and pegs should I use? ', $)
+4		FORMAT ('Colors are (R)ed, (G)reen, (B)lue, (Y)ellow,', $)
+5		FORMAT ('Enter your guess: ', $)
+6		FORMAT ('Your guess contains', $)
+7		FORMAT (' 1 piece in the right place and', $)
+8		FORMAT (' pieces in the right place and', $)
+9		FORMAT (' 1 piece of the correct color in the wrong place')
 10		FORMAT (' pieces of the correct color in the wrong place')
 11		FORMAT ('You guessed it in', $)
 12		FORMAT ('Thank you. Play again? ', $)
